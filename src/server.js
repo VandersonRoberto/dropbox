@@ -5,9 +5,6 @@ const app = express();
 
 app.use(cors());
 
-
-
-
 const server = require('http').Server(app);
 //Habilitando tranbalharmos protocolo WS - WebSocket incluido também ao http definido anteriormente
 const io = require('socket.io')(server)
@@ -38,4 +35,4 @@ app.use(express.urlencoded({extended: true}));
 app.use(require('./routes'));
 
 // passando a porta para executar
-app.listen(3333);
+app.listen(process.env.PORT || 3333);
